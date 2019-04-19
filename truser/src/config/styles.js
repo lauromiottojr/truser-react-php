@@ -37,5 +37,12 @@ export default styles = StyleSheet.create({
         paddingTop: 20,
         marginLeft: 5,
         marginRight: 5,
+    },
+    rowViewContainer: {
+        textAlign: 'center',
+        fontSize: 20,
+        paddingTop: 10,
+        paddingRight: 10,
+        paddingBottom: 10,
     }
 });
