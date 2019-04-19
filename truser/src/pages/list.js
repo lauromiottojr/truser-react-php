@@ -16,7 +16,7 @@ export default class ViewDataUser extends Component {
     };
 
     componentDidMount() {
-        return fetch('http://192.168.0.108/tr_reactnative/view_users.php')
+        return fetch('http://192.168.0.108/tr_reactnative/UserDAO.php?function=show')
             .then((response) => response.json())
             .then((responseJson) => {
                 let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })

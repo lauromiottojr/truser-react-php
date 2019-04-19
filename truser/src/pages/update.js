@@ -28,7 +28,7 @@ export default class UpdateDataUser extends Component {
     // };
 
     UpdateUsers = () => {
-        fetch('http://192.168.0.108/tr_reactnative/update.php', {
+        fetch('http://192.168.0.108/tr_reactnative/UserDAO.php?function=update', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -50,7 +50,7 @@ export default class UpdateDataUser extends Component {
     };
 
     DeleteUsers = () => {
-        fetch('http://192.168.0.108/tr_reactnative/delete.php', {
+        fetch('http://192.168.0.108/tr_reactnative/UserDAO.php?function=delete', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

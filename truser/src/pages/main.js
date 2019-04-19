@@ -21,7 +21,7 @@ export default class Main extends Component {
         const { TextInputName } = this.state;
         const { TextInputEmail } = this.state;
         const { TextInputPhoneNumber } = this.state;
-        fetch('http://192.168.0.108/tr_reactnative/insert.php', {
+        fetch('http://192.168.0.108/tr_reactnative/UserDAO.php?function=insert', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
