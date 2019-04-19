@@ -19,10 +19,14 @@ function insert() {
     $name = $obj['name'];
     $email = $obj['email'];
     $phone_number = $obj['phone_number'];
-    if (mysqli_query($link, "INSERT INTO users(name, email, phone_number) VALUES ('$name', '$email', '$phone_number')")) {
-        echo json_encode('Insert successfully!');
+    if (!($name == '' || $email == '' || $phone_number == '')) {
+        if (mysqli_query($link, "INSERT INTO users(name, email, phone_number) VALUES ('$name', '$email', '$phone_number')")) {
+            echo json_encode('Insert successfully!');
+        } else {
+            echo json_encode('Insert failed!');
+        }
     } else {
-        echo json_encode('Insert failed!');
+        echo json_encode('All fields is required!');
     }
 
     mysqli_close($link);
@@ -52,10 +56,14 @@ function update() {
     $email = $obj['email'];
     $phone_number = $obj['phone_number'];
 
-    if (mysqli_query($link, "UPDATE users SET name = '$name', email = '$email', phone_number = '$phone_number' WHERE id = '$id'")) {
-        echo json_encode('Update successfully!');
+    if (!($name == '' || $email == '' || $phone_number == '')) {
+        if (mysqli_query($link, "UPDATE users SET name = '$name', email = '$email', phone_number = '$phone_number' WHERE id = '$id'")) {
+            echo json_encode('Update successfully!');
+        } else {
+            echo json_encode('Update failed!');
+        }
     } else {
-        echo json_encode('Update failed!');
+        echo json_encode('All fields is required!');
     }
     mysqli_close($link);
 }

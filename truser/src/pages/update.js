@@ -43,10 +43,12 @@ export default class UpdateDataUser extends Component {
         }).then((response) => response.json())
             .then((responseJson) => {
                 Alert.alert(responseJson);
+                if (responseJson !== 'All fields is required!') {
+                    this.props.navigation.navigate('ViewDataUser');
+                }
             }).catch((error) => {
                 console.error(error);
             })
-        this.props.navigation.navigate('ViewDataUser');
     };
 
     DeleteUsers = () => {
