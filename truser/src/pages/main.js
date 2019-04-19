@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 
 export default class InputUsers extends Component {
 
@@ -25,6 +24,23 @@ export default class InputUsers extends Component {
         const { TextInputName } = this.state;
         const { TextInputEmail } = this.state;
         const { TextInputPhoneNumber } = this.state;
+        fetch('http://192.168.0.108/tr_reactnative/insert.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: TextInputName,
+                email: TextInputEmail,
+                phone_number: TextInputPhoneNumber,
+            })
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                Alert.alert(responseJson);
+            }).catch((error) => {
+            console.error(error);
+        })
     };
 
     render() {
@@ -40,7 +56,7 @@ export default class InputUsers extends Component {
                     TextInputPhoneNumber: TextInputValue
                 })} underlineColorAndroid='transparent' style={styles.TextInputStyle} />
                 <TouchableOpacity activeOpacity={.4} style={styles.TouchableOpacityStyle} onPress={this.InsertUsers} >
-                    <Text style={styles.TextStyle}>Save</Text>
+                    <Text style={styles.TextStyle}>SAVE</Text>
                 </TouchableOpacity>
             </View>
         );
