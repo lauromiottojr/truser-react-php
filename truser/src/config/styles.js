@@ -18,7 +18,7 @@ export default styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#FF5722',
         borderRadius: 5,
-        fontSize: 15,
+        fontSize: 18,
     },
     TextStyle: {
         color: '#fff',
@@ -32,10 +32,18 @@ export default styles = StyleSheet.create({
         width: '90%',
         backgroundColor: '#00BCDA',
     },
+    TouchableOpacityStyle2: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        borderRadius: 5,
+        marginBottom: 7,
+        width: '90%',
+        backgroundColor: '#FF5722',
+    },
     containerDataUsers: {
         flex: 1,
         paddingTop: 20,
-        marginLeft: 5,
+        marginLeft: 2,
         marginRight: 5,
     },
     rowViewContainer: {
@@ -43,6 +51,6 @@ export default styles = StyleSheet.create({
         fontSize: 20,
         paddingTop: 10,
         paddingRight: 10,
-        paddingBottom: 10,
-    }
+        paddingBottom: 10
+    },
 });

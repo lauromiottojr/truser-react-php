@@ -35,6 +35,7 @@ export default class Main extends Component {
         }).then((response) => response.json())
             .then((responseJson) => {
                 Alert.alert(responseJson);
+                this.props.navigation.navigate('ViewDataUser');
             }).catch((error) => {
                 console.error(error);
             })
