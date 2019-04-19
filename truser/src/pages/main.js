@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import styles from '../config/styles';
 
-export default class InputUsers extends Component {
+export default class Main extends Component {
 
     static navigationOptions = {
-        title: 'Input Users',
-        headerStyle: {
-            backgroundColor: 'black',
-        },
-        headerTintColor: '#FFF'
+        title: 'Input Users'
     };
 
     constructor(props) {
@@ -39,8 +36,8 @@ export default class InputUsers extends Component {
             .then((responseJson) => {
                 Alert.alert(responseJson);
             }).catch((error) => {
-            console.error(error);
-        })
+                console.error(error);
+            })
     };
 
     render() {
@@ -58,40 +55,13 @@ export default class InputUsers extends Component {
                 <TouchableOpacity activeOpacity={.4} style={styles.TouchableOpacityStyle} onPress={this.InsertUsers} >
                     <Text style={styles.TextStyle}>SAVE</Text>
                 </TouchableOpacity>
+                <TouchableOpacity activeOpacity={.4} style={styles.TouchableOpacityStyle}
+                    onPress={() => {
+                        this.props.navigation.navigate('ViewDataUser');
+                    }} >
+                    <Text style={styles.TextStyle}>VIEW USERS</Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        marginTop: 5,
-    },
-    TextInputStyle: {
-        textAlign: 'center',
-        marginTop: 20,
-        marginBottom: 7,
-        height: 40,
-        width: '90%',
-        borderWidth: 1,
-        borderColor: '#FF5722',
-        borderRadius: 5,
-        fontSize: 15,
-    },
-    TextStyle: {
-        color: '#fff',
-        textAlign: 'center',
-    },
-    TouchableOpacityStyle: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        borderRadius: 5,
-        marginBottom: 7,
-        width: '90%',
-        backgroundColor: '#00BCDA',
-    },
-});
