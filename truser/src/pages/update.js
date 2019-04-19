@@ -28,7 +28,25 @@ export default class UpdateDataUser extends Component {
     // };
 
     UpdateUsers = () => {
-
+        fetch('http://192.168.0.108/tr_reactnative/update.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: this.state.TextInputId,
+                name: this.state.TextInputName,
+                email: this.state.TextInputEmail,
+                phone_number: this.state.TextInputPhoneNumber,
+            })
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                Alert.alert(responseJson);
+            }).catch((error) => {
+                console.error(error);
+            })
+        this.props.navigation.navigate('ViewDataUser');
     };
 
     DeleteUsers = () => {
